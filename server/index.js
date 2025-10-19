@@ -11,7 +11,7 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+const supabase = createClient(process.env.SUPABASE_KEY);
 
 app.get("/posts", async (req, res) => {
   const { data, error } = await supabase.from("posts").select("*").order("id", { ascending: true });
