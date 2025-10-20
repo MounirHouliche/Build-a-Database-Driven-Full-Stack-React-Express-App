@@ -9,14 +9,14 @@ function Posts() {
   const [posts, setPosts] = useState([]);
 
   async function fetchPosts() {
-    const res = await fetch("https://build-a-database-driven-full-stack-react-m2yi.onrender.com/");
+    const res = await fetch("https://build-a-database-driven-full-stack-react-m2yi.onrender.com/posts");
     const data = await res.json();
     setPosts(data);
   }
 
   useEffect(() => {
     fetchPosts();
-    const interval = setInterval(fetchPosts, 5000); 
+    const interval = setInterval(fetchPosts, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -39,7 +39,7 @@ function NewPost() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await fetch("http://localhost:8080/posts", {
+    await fetch("https://build-a-database-driven-full-stack-react-m2yi.onrender.com/posts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title, content }),
