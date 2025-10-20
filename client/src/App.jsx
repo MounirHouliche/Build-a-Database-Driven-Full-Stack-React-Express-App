@@ -9,7 +9,7 @@ function Posts() {
   const [posts, setPosts] = useState([]);
 
   async function fetchPosts() {
-    const res = await fetch("http://localhost:8080/posts");
+    const res = await fetch("https://build-a-database-driven-full-stack-react-m2yi.onrender.com/");
     const data = await res.json();
     setPosts(data);
   }
